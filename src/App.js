@@ -20,19 +20,16 @@ function App() {
     if (query === '') {
       return;
     }
-    searchQuery(page, query, maxPerPage);
-  }, [page, query]);
-
-  useEffect(() => {
     if (page > 1) {
       setTimeout(() => {
         window.scrollTo({
           top: document.documentElement.scrollHeight,
           behavior: 'smooth',
         });
-      }, 400);
+      }, 600);
     }
-  }, [page]);
+    searchQuery(page, query, maxPerPage);
+  }, [page, query]);
 
   const searchQuery = (page, query, maxPerPage) => {
     setIsLoading(true);
